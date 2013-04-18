@@ -1,0 +1,27 @@
+{
+  "name": "vcl-monitor",
+  "description": "VCL Health Check",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node vcl"
+  },
+  "dependencies": {
+    "ssh2": "0.2.5",
+    "underscore": "*",
+    "mysql": "2.0.0-alpha7"
+  },
+  "readmeFilename": "README.md",
+  "gitHead": "26a81c35f86a9c34bbebfe9ca2b42d3f5948cb96",
+  "main": "vcl.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acoburn/vcl-monitor.git"
+  },
+  "keywords": [
+    "apache",
+    "vcl"
+  ],
+  "author": "Aaron Coburn",
+  "license": "Apache"
+}
