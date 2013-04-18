@@ -3,9 +3,6 @@
   "description": "VCL Health Check",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "start": "node vcl"
-  },
   "dependencies": {
     "ssh2": "0.2.5",
     "underscore": "*",
@@ -22,6 +19,7 @@
     "apache",
     "vcl"
   ],
-  "author": "Aaron Coburn",
+  "main": "./lib/monitor",
+  "author": "Aaron Coburn <acoburn@amherst.edu>",
   "license": "Apache"
 }
