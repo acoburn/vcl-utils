@@ -15,7 +15,7 @@ Requirements
 Install
 =======
 
-    npm install vcl-monitor
+    npm install vcl-utils
 
 Examples
 ========
@@ -23,49 +23,37 @@ Examples
 Here is an example for how to use it:
 
 ```js
-var vcl = require('vcl-monitor');
+var health = require('vcl-utils').Health;
 
-var monitor = vcl.createMonitor({
-    mysql: {
-        host: 'localhost',
-        user: 'vcl',
-        database: 'vcl',
-        password: 'secret'
-      },
-    ssh: {
-        privateKey: '/etc/vcl/vcl.key',
-        username: 'root'
-      }
-  });
-
-monitor.on('info', function(msg) {
+health.on('info', function(msg) {
     console.log('INFO :: ' + msg);
 });
 
-monitor.check('vcl-m01.example.org');
+health.check({
+    config: '/etc/vcl/vcld.conf',
+    sshKey: '/etc/vcl/vcl.key'
+  });
 ```
 
 Or, you can check only for computers with incorrect image revisions:
 
 ```js
-var vcl = require('vcl-monitor');
+var health = require('vcl-utils').Health;
 
-var monitor = vcl.createMonitor({
-    mysql: {...},
-    ssh: {...}
+health.on('incorrectImage', function(host) {
+    console.log('Incorrect Image :: ' + host);
   });
 
-monitor.on('incorrectImage', function(host) {
-    console.log('Incorrect Image :: ' + host);
-});
-
-monitor.check('vcl-m01.example.org');
+health.check({
+    config: '/etc/vcl/vcld.conf',
+    sshKey: '/etc/vcl/vcl.key'
+  });
 ```
 
 API
 ===
 
-Monitor events
+Health events
 --------------
 
 * **info**() - Information about each computer managed by this management node.
@@ -82,11 +70,14 @@ Monitor events
 
 * **reloading**() - All computers currently reloading.
 
-Monitor methods
+Health methods
 ---------------
 
 ```js
-monitor.check(managementNode);
+health.check({
+    config: '/path/to/vcld.conf',
+    sshKey: '/path/to/vcl.key'
+  });
 ```
 
 The `check()` method will find all computers for a given management node, and
@@ -94,10 +85,4 @@ The `check()` method will find all computers for a given management node, and
 revisionid matches what is listed in the database. For any other state,
 the computer will not be checked, but an event corresponding to that state
 will be emitted.
-
-
-
-
-
-
 

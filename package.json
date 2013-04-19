@@ -1,5 +1,5 @@
 {
-  "name": "vcl-monitor",
+  "name": "vcl-utils",
   "description": "VCL Health Check",
   "version": "0.0.1",
   "private": true,
@@ -13,7 +13,7 @@
   "main": "vcl.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/acoburn/vcl-monitor.git"
+    "url": "https://github.com/acoburn/vcl-utils.git"
   },
   "keywords": [
     "apache",
