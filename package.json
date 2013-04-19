@@ -19,7 +19,7 @@
     "apache",
     "vcl"
   ],
-  "main": "./lib/monitor",
+  "main": "./index",
   "author": "Aaron Coburn <acoburn@amherst.edu>",
   "license": "Apache"
 }
