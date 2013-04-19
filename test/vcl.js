@@ -4,9 +4,7 @@ var common = exports
 
 common.lib = path.join(__dirname, '../lib');
 
-var vcl = require('../');
-
-var monitor = vcl.createMonitor(config);
+var monitor = require('../').Health;
 
 monitor.on('error', function(err) {
   console.log("Error :: " + err);
