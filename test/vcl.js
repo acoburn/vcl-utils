@@ -28,5 +28,9 @@ monitor.on('available', function(host) {
   console.log('OK :: ' + host);
 });
 
-monitor.check(config.vcl.managementNode);
+monitor.check({
+    config: '/etc/vcl/vcld.conf',
+    sshKey: '/etc/vcl/vcl.key',
+    insecureAuth: true
+  });
       
