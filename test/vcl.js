@@ -1,6 +1,5 @@
 var common = exports
-  , path   = require('path')
-  , config = require('../config.json');
+  , path   = require('path');
 
 common.lib = path.join(__dirname, '../lib');
 
