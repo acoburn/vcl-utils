@@ -1,26 +1,31 @@
-var monitor = require('../').Health;
+var health = require('../').Health;
 
-monitor.on('error', function(err) {
+
+health.on('error', function(err) {
   console.log("Error :: " + err);
 });
 
-monitor.on('incorrectImage', function(host) {
+
+health.on('incorrectImage', function(host) {
   console.log("Incorrect Revision :: " + host);
 });
 
-monitor.on('info', function(msg) {
+
+health.on('info', function(msg) {
   console.log(msg);
 });
 
-monitor.on('failed', function(host) {
+
+health.on('failed', function(host) {
   console.log('Failed :: ' + host);
 });
 
-monitor.on('available', function(host) {
+health.on('available', function(host) {
   console.log('OK :: ' + host);
 });
 
-monitor.check({
+
+health.check({
     config: '/etc/vcl/vcld.conf',
     sshKey: '/etc/vcl/vcl.key'
   });
