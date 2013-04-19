@@ -1,10 +1,8 @@
 # vcl-utils
 
+## Introduction
 
-## Requirements
-
-* [node.js](http://nodejs.org/) -- v0.8.7 or newer
-* [Apache-VCL](http://vcl.apache.org/) -- version 2.3 or newer
+This is a [node.js](http://nodejs.org) tool for monitoring an [apache-vcl](http://vcl.apache.org) infrastructure. It quickly checks on the status of all nodes controlled by a given management node.
 
 ## Install
 
@@ -12,16 +10,21 @@
 npm install vcl-utils
 ```
 
-## Introduction
+## Requirements
 
-This is a [node.js](http://nodejs.org) tool for monitoring an [apache-vcl](http://vcl.apache.org) infrastructure. It quickly checks on the status of all nodes controlled by a given management node.
+* [node.js](http://nodejs.org/) -- v0.8.7 or newer
+* [Apache-VCL](http://vcl.apache.org/) -- version 2.3 or newer
 
 ## Examples
 
-Here is an example for how to use it:
+Check all nodes and report back on their status, capturing any errors:
 
 ```js
 var health = require('vcl-utils').Health;
+
+health.on('error', function(err) {
+    console.log('ERROR :: ' + err);
+});
 
 health.on('info', function(msg) {
     console.log('INFO :: ' + msg);
@@ -50,25 +53,25 @@ health.check({
 
 ### Health events
 
-* **info**() - Information about each computer managed by this management node.
+* `info` - Information about each computer managed by this management node.
 
-* **error**() - Any errors encountered in connecting to computers.
+* `error` - Any errors encountered in connecting to computers.
 
-* **incorrectImage**() - All computers with a non-matching image.
+* `incorrectImage` - All computers with a non-matching image.
 
 All other events correspond to the `state` value of a VCL node. Some of these include:
 
-* **available**() - All computers in an **_available_** state.
+* `available` - All computers in an **_available_** state.
 
-* **failed**() - All computers in a **_failed_** state.
+* `failed` - All computers in a **_failed_** state.
 
-* **inuse**() - All computers currently in use.
+* `inuse` - All computers currently in use.
 
-* **reloading**() - All computers currently reloading.
+* `reloading` - All computers currently reloading.
 
-* **reserved**() - All currently reserved computers.
+* `reserved` - All currently reserved computers.
 
-* **maintenance**() - All computers in the maintenance state.
+* `maintenance` - All computers in the maintenance state.
 
 ### Health methods
 
