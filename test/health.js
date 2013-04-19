@@ -20,13 +20,13 @@ health.on('failed', function(host) {
   console.log('Failed :: ' + host);
 });
 
+
 health.on('available', function(host) {
   console.log('OK :: ' + host);
 });
 
 
 health.check({
-    config: '/etc/vcl/vcld.conf',
-    sshKey: '/etc/vcl/vcl.key'
+    config: '/etc/vcl/vcld.conf'
   });
       
