@@ -1,16 +1,14 @@
 {
   "name": "vcl-utils",
-  "description": "VCL Health Check",
+  "description": "A simple tool to monitor an Apache VCL infrastructure.",
   "version": "0.0.1",
-  "private": true,
   "dependencies": {
-    "ssh2": "0.2.5",
-    "underscore": "*",
+    "ssh2": "0.2.x",
+    "underscore": "1.4.x",
     "mysql": "2.0.0-alpha7"
   },
-  "readmeFilename": "README.md",
+  "analyze": true,
   "gitHead": "26a81c35f86a9c34bbebfe9ca2b42d3f5948cb96",
-  "main": "vcl.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/acoburn/vcl-utils.git"
@@ -19,6 +17,13 @@
     "apache",
     "vcl"
   ],
+  "scripts": {
+    "start": "node ./bin/health",
+    "test": "node ./test/health"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
   "main": "./index",
   "author": "Aaron Coburn <acoburn@amherst.edu>",
   "license": "Apache"

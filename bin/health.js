@@ -8,16 +8,9 @@ monitor.on('incorrectImage', function(host) {
   console.log("Incorrect Revision :: " + host);
 });
 
-monitor.on('info', function(msg) {
-  console.log(msg);
-});
 
 monitor.on('failed', function(host) {
   console.log('Failed :: ' + host);
-});
-
-monitor.on('available', function(host) {
-  console.log('OK :: ' + host);
 });
 
 monitor.check({

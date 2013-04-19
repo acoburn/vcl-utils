@@ -2,7 +2,7 @@
 Description
 ===========
 
-This is a [node.js](http://nodejs.org) tool for monitoring an apache-vcl infrastructure.
+This is a [node.js](http://nodejs.org) tool for monitoring an [apache-vcl](http://vcl.apache.org) infrastructure.
 
 Development/testing is done against Apache-VCL version 2.3.x.
 
