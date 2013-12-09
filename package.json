@@ -1,9 +1,10 @@
 {
   "name": "vcl-utils",
   "description": "A simple tool to monitor an Apache VCL infrastructure.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "ssh2": "0.2.x",
+    "async": "*",
     "underscore": "1.4.x",
     "mysql": "2.0.0-alpha7"
   },
