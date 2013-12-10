@@ -29,10 +29,8 @@ health.on('available', function(host) {
 
 
 health.check(opts, function (err, results) {
-  results.filter(function (x) { return x.error; })
-         .forEach(function (x) {
-            console.log('Re-check :: ' + x.error);
-            setTimeout(health.checkhost(x.error, opts), 1000 * 60 * 5);
+  results.forEach(function (x) {
+            console.log('Summary :: ' + JSON.stringify(x));
           });
 });
       
